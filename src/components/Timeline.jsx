@@ -51,7 +51,7 @@ const experiencia = [
 ];
 
 export default function Timeline() {
-  const [ref, isVisible] = useScrollAnimation(0.1);
+  const [ref, isVisible] = useScrollAnimation(0.05);
 
   return (
     <section id="formacion" className="section-padding relative">
@@ -63,63 +63,63 @@ export default function Timeline() {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
           <h2 className="section-title">
             Formación y{' '}
             <span className="text-gradient">experiencia</span>
           </h2>
-          <p className="section-subtitle mt-4">
+          <p className="section-subtitle mt-3 sm:mt-4">
             Mi recorrido académico y profesional.
           </p>
-          <div className="w-16 h-1 bg-accent rounded-full mt-6" />
+          <div className="w-12 sm:w-16 h-1 bg-accent rounded-full mt-4 sm:mt-6" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-12 lg:gap-16">
           {/* Formación */}
           <div>
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg font-semibold text-white mb-8 flex items-center gap-3"
+              className="text-base sm:text-lg font-semibold text-white mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3"
             >
-              <GraduationCap size={22} className="text-accent" />
+              <GraduationCap size={20} className="text-accent" />
               Formación académica
             </motion.h3>
 
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-[19px] top-2 bottom-2 w-px bg-dark-800" />
+              <div className="absolute left-[17px] sm:left-[19px] top-2 bottom-2 w-px bg-dark-800" />
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {formacion.map((item, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isVisible ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
-                    className="relative flex gap-5"
+                    className="relative flex gap-3 sm:gap-5"
                   >
                     {/* Dot */}
                     <div className="flex-shrink-0 relative z-10">
                       <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center border ${
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border ${
                           item.activo
                             ? 'bg-accent/10 border-accent/30 text-accent'
                             : 'bg-dark-900 border-dark-700 text-dark-400'
                         }`}
                       >
-                        <item.icon size={18} />
+                        <item.icon size={16} />
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="glass-card p-5 flex-1">
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <h4 className="text-white font-semibold">{item.titulo}</h4>
+                    <div className="glass-card p-4 sm:p-5 flex-1 min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-2">
+                        <h4 className="text-white font-semibold text-sm sm:text-base">{item.titulo}</h4>
                         <span
-                          className={`flex-shrink-0 px-2.5 py-1 text-xs rounded-full font-medium ${
+                          className={`self-start flex-shrink-0 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs rounded-full font-medium ${
                             item.activo
                               ? 'bg-accent/10 text-accent border border-accent/20'
                               : 'bg-dark-800 text-dark-400 border border-dark-700'
@@ -128,8 +128,8 @@ export default function Timeline() {
                           {item.periodo}
                         </span>
                       </div>
-                      <p className="text-dark-500 text-sm mb-2">{item.institucion}</p>
-                      <p className="text-dark-400 text-sm leading-relaxed">
+                      <p className="text-dark-500 text-xs sm:text-sm mb-1.5 sm:mb-2">{item.institucion}</p>
+                      <p className="text-dark-400 text-xs sm:text-sm leading-relaxed">
                         {item.descripcion}
                       </p>
                     </div>
@@ -145,44 +145,44 @@ export default function Timeline() {
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg font-semibold text-white mb-8 flex items-center gap-3"
+              className="text-base sm:text-lg font-semibold text-white mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3"
             >
-              <Briefcase size={22} className="text-accent" />
+              <Briefcase size={20} className="text-accent" />
               Experiencia
             </motion.h3>
 
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-[19px] top-2 bottom-2 w-px bg-dark-800" />
+              <div className="absolute left-[17px] sm:left-[19px] top-2 bottom-2 w-px bg-dark-800" />
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {experiencia.map((item, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isVisible ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
-                    className="relative flex gap-5"
+                    className="relative flex gap-3 sm:gap-5"
                   >
                     {/* Dot */}
                     <div className="flex-shrink-0 relative z-10">
                       <div
-                        className={`w-10 h-10 rounded-xl flex items-center justify-center border ${
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border ${
                           item.activo
                             ? 'bg-accent/10 border-accent/30 text-accent'
                             : 'bg-dark-900 border-dark-700 text-dark-400'
                         }`}
                       >
-                        <item.icon size={18} />
+                        <item.icon size={16} />
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="glass-card p-5 flex-1">
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <h4 className="text-white font-semibold">{item.titulo}</h4>
+                    <div className="glass-card p-4 sm:p-5 flex-1 min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-3 mb-2">
+                        <h4 className="text-white font-semibold text-sm sm:text-base">{item.titulo}</h4>
                         <span
-                          className={`flex-shrink-0 px-2.5 py-1 text-xs rounded-full font-medium ${
+                          className={`self-start flex-shrink-0 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs rounded-full font-medium ${
                             item.activo
                               ? 'bg-accent/10 text-accent border border-accent/20'
                               : 'bg-dark-800 text-dark-400 border border-dark-700'
@@ -191,14 +191,14 @@ export default function Timeline() {
                           {item.periodo}
                         </span>
                       </div>
-                      <p className="text-dark-500 text-sm mb-3">{item.empresa}</p>
-                      <ul className="space-y-2">
+                      <p className="text-dark-500 text-xs sm:text-sm mb-2 sm:mb-3">{item.empresa}</p>
+                      <ul className="space-y-1.5 sm:space-y-2">
                         {item.descripcion.map((punto, i) => (
                           <li
                             key={i}
-                            className="text-dark-400 text-sm leading-relaxed flex items-start gap-2"
+                            className="text-dark-400 text-xs sm:text-sm leading-relaxed flex items-start gap-2"
                           >
-                            <span className="w-1.5 h-1.5 bg-accent/50 rounded-full mt-1.5 flex-shrink-0" />
+                            <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-accent/50 rounded-full mt-1.5 flex-shrink-0" />
                             {punto}
                           </li>
                         ))}

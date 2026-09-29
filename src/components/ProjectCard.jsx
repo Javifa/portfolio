@@ -16,7 +16,7 @@ export default function ProjectCard({ project, index, isVisible }) {
       <div className={`${isDestacado ? 'md:grid md:grid-cols-2' : ''}`}>
         {/* Image area */}
         <div className={`relative overflow-hidden bg-dark-900 ${
-          isDestacado ? 'aspect-[16/10] md:aspect-auto md:min-h-full' : 'aspect-video'
+          isDestacado ? 'aspect-[4/3] sm:aspect-[16/10] md:aspect-auto md:min-h-full' : 'aspect-[4/3] sm:aspect-video'
         }`}>
           {project.imagen ? (
             <img
@@ -27,15 +27,15 @@ export default function ProjectCard({ project, index, isVisible }) {
             />
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-dark-600 gap-3">
-              <ImageOff size={40} strokeWidth={1.5} />
-              <span className="text-sm">Imagen próximamente</span>
+              <ImageOff size={36} strokeWidth={1.5} />
+              <span className="text-xs sm:text-sm">Imagen próximamente</span>
             </div>
           )}
 
           {/* Category badge */}
           {project.categoria && (
-            <div className="absolute top-4 left-4">
-              <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+              <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${
                 project.categoria === 'personal'
                   ? 'bg-accent/20 text-accent border border-accent/30'
                   : 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
@@ -50,20 +50,20 @@ export default function ProjectCard({ project, index, isVisible }) {
         </div>
 
         {/* Content */}
-        <div className="p-6 md:p-8 flex flex-col">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300">
+        <div className="p-5 sm:p-6 md:p-8 flex flex-col">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-accent transition-colors duration-300">
             {project.nombre}
           </h3>
 
-          <p className="text-dark-400 leading-relaxed mb-6 flex-1">
+          <p className="text-dark-400 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 flex-1">
             {isDestacado ? project.descripcion : project.descripcionCorta}
           </p>
 
           {/* Features for featured project */}
           {isDestacado && project.caracteristicas.length > 0 && (
-            <div className="grid grid-cols-2 gap-3 mb-6">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
               {project.caracteristicas.map((feat, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-dark-300">
+                <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-dark-300">
                   <feat.icon size={14} className="text-accent flex-shrink-0" />
                   <span>{feat.texto}</span>
                 </div>
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, index, isVisible }) {
           )}
 
           {/* Tech tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
             {project.tecnologias.map((tech) => (
               <span key={tech} className="tech-badge text-xs">
                 {tech}
@@ -87,7 +87,7 @@ export default function ProjectCard({ project, index, isVisible }) {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-sm py-2.5"
+                className="btn-primary text-sm py-2.5 flex-1 sm:flex-none"
                 aria-label={`Ver demo de ${project.nombre}`}
               >
                 <ExternalLink size={16} />
