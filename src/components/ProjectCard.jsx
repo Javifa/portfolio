@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ImageOff } from 'lucide-react';
+import { ExternalLink, ImageOff } from 'lucide-react';
 
 export default function ProjectCard({ project, index, isVisible }) {
   const isDestacado = project.destacado;
@@ -92,18 +92,6 @@ export default function ProjectCard({ project, index, isVisible }) {
               >
                 <ExternalLink size={16} />
                 Ver proyecto
-              </a>
-            )}
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-sm py-2.5"
-                aria-label={`Ver código de ${project.nombre}`}
-              >
-                <Github size={16} />
-                GitHub
               </a>
             )}
           </div>

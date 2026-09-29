@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Mail, Github, Linkedin, ArrowUpRight, MapPin } from 'lucide-react';
+import { Mail, Linkedin, ArrowUpRight, MapPin } from 'lucide-react';
 
 const contactLinks = [
   {
@@ -11,17 +11,10 @@ const contactLinks = [
     description: 'Escríbeme un email',
   },
   {
-    icon: Github,
-    label: 'GitHub',
-    value: 'github.com/TU_USUARIO',
-    href: 'https://github.com/TU_USUARIO',
-    description: 'Mira mi código',
-  },
-  {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/TU_PERFIL',
-    href: 'https://linkedin.com/in/TU_PERFIL',
+    value: 'linkedin.com/in/javier-faustino',
+    href: 'https://www.linkedin.com/in/javier-faustino/',
     description: 'Conectemos',
   },
 ];
