@@ -82,11 +82,33 @@ export default function Hero() {
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-start justify-center items-center lg:items-start">
-              <a href="#proyectos" className="btn-primary w-full sm:w-auto">
+              <a
+                href="#proyectos"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('proyectos');
+                  if (el) {
+                    const navH = window.innerWidth >= 768 ? 80 : 56;
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+                  }
+                }}
+                className="btn-primary w-full sm:w-auto"
+              >
                 Ver proyectos
                 <ChevronRight size={18} />
               </a>
-              <a href="#contacto" className="btn-secondary w-full sm:w-auto">
+              <a
+                href="#contacto"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('contacto');
+                  if (el) {
+                    const navH = window.innerWidth >= 768 ? 80 : 56;
+                    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navH, behavior: 'smooth' });
+                  }
+                }}
+                className="btn-secondary w-full sm:w-auto"
+              >
                 Contactar conmigo
               </a>
             </div>
@@ -161,7 +183,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

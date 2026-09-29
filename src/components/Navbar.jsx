@@ -50,10 +50,16 @@ export default function Navbar() {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setIsOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    
+    // Small delay to let mobile menu close before scrolling
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        const navHeight = window.innerWidth >= 768 ? 80 : 56;
+        const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, isOpen ? 150 : 0);
   };
 
   return (
